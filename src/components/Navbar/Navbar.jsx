@@ -34,7 +34,7 @@ const LogoComponent = () => {
     return (
         <a href="#" className="font-bold text-2xl sm:text-3xl flex gap-2 hover:scale-105 duration-300  lg:my-0,5">
             <img src={Logo} alt="Logo" className="w-12" />
-            <span className="flex items-center">InnoTech</span>
+            <span className="flex items-center">Technovate</span>
         </a>
     );
 };
