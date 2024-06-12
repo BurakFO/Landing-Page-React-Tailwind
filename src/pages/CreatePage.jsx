@@ -12,7 +12,7 @@ const CreatePage = () => {
 
     return (
         <>
-            <div className="grid grid-cols-8 gap-9 mt-4 m-4">
+            <div className="grid grid-cols-6 lg:grid-cols-8 gap-9 mt-4 m-4">
                 {/* Edit Section */}
                 <div className="col-span-2 mx-4">
                     <CreateInput />
@@ -28,7 +28,7 @@ const CreatePage = () => {
                     <Footer />
                 </div>
 
-                <div className="col-span-2">
+                <div className="col-span-2 hidden lg:col-span-2">
                     hello
                 </div>
             </div>
