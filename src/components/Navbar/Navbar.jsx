@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Logo from "../../assets/website/logo.jpg";
 import { FaCaretDown, FaBars, FaTimes } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCompanyName } from "../../redux/companyNameSlice";
 
 const Menu = [
     {
@@ -30,11 +32,11 @@ const DropdownLinks = [
     },
 ];
 
-const LogoComponent = () => {
+const LogoComponent = ({title}) => {
     return (
         <a href="#" className="font-bold text-2xl sm:text-3xl flex gap-2 hover:scale-105 duration-300  lg:my-0,5">
             <img src={Logo} alt="Logo" className="w-12" />
-            <span className="flex items-center">Technovate</span>
+            <span className="flex items-center">{title}</span>
         </a>
     );
 };
@@ -87,17 +89,22 @@ const Navbar = () => {
     const toggleMenu = () => {
         setShowMenu(!showMenu);
     };
+    const { companyName, loading } = useSelector(selectCompanyName);
+
+    console.log(useSelector(selectCompanyName))
+    console.log({ loading })
+
 
     return (
         <div className="shadow-lg bg-white">
             {/* asagidaki class'a container vermedim. onun yerine mx-8 ifadesi var */}
             <div className="mx-8 py-3 lg:py-3 sm:py-0 flex justify-between items-center">
-                <LogoComponent />
+                <LogoComponent title={companyName}/>
                 <div className="flex items-center sm:hidden">
                     <button onClick={toggleMenu} className="text-2xl">
                         {showMenu ? <FaTimes /> : <FaBars />}
                     </button>
-                    
+
                 </div>
                 <div className="hidden sm:flex items-center">
                     <MenuComponent />
@@ -119,7 +126,7 @@ const Navbar = () => {
                     </ul>
                 </div>
             )}
-            
+
         </div>
     );
 };
