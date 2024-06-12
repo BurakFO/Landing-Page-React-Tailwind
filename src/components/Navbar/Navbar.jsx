@@ -32,11 +32,12 @@ const DropdownLinks = [
     },
 ];
 
-const LogoComponent = ({title}) => {
+const LogoComponent = () => {
+    const { companyName, loading } = useSelector(selectCompanyName);
     return (
         <a href="#" className="font-bold text-2xl sm:text-3xl flex gap-2 hover:scale-105 duration-300  lg:my-0,5">
             <img src={Logo} alt="Logo" className="w-12" />
-            <span className="flex items-center">{title}</span>
+            <span className="flex items-center">{companyName}</span>
         </a>
     );
 };
@@ -89,17 +90,14 @@ const Navbar = () => {
     const toggleMenu = () => {
         setShowMenu(!showMenu);
     };
-    const { companyName, loading } = useSelector(selectCompanyName);
 
-    console.log(useSelector(selectCompanyName))
-    console.log({ loading })
 
 
     return (
         <div className="shadow-lg bg-white">
             {/* asagidaki class'a container vermedim. onun yerine mx-8 ifadesi var */}
             <div className="mx-8 py-3 lg:py-3 sm:py-0 flex justify-between items-center">
-                <LogoComponent title={companyName}/>
+                <LogoComponent />
                 <div className="flex items-center sm:hidden">
                     <button onClick={toggleMenu} className="text-2xl">
                         {showMenu ? <FaTimes /> : <FaBars />}
