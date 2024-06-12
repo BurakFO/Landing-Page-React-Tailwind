@@ -4,8 +4,17 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
 
   theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+    extend: {
 
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          lg: "0rem",
+          sm: "3rem",
+        }
+      }
+    },
+    plugins: [],
+  }
+}
