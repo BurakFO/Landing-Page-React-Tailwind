@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCompanyName, setCompanyName } from "../../redux/companyNameSlice";
-
+import { selectBanner, setBanner } from "../../redux/bannerSlice";
 
 const CreateInput = ({ inputRef, bannerRef }) => {
 
@@ -12,7 +12,7 @@ const CreateInput = ({ inputRef, bannerRef }) => {
         dispatch(setCompanyName(e.target.value));
     };
     const handleBannerChange = (e) =>{
-        //dispatch(setBanner(e.target.value));
+        dispatch(setBanner(e.target.value));
     };
 
     return (
