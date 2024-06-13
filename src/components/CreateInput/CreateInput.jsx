@@ -2,13 +2,17 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCompanyName, setCompanyName } from "../../redux/companyNameSlice";
 
-const CreateInput = () => {
+
+const CreateInput = ({ inputRef, bannerRef }) => {
 
     const dispatch = useDispatch();
     const { companyName } = useSelector(selectCompanyName);
 
     const handleChange = (e) => {
         dispatch(setCompanyName(e.target.value));
+    };
+    const handleBannerChange = (e) =>{
+        //dispatch(setBanner(e.target.value));
     };
 
     return (
@@ -17,12 +21,15 @@ const CreateInput = () => {
                 <div className="mb-4">
                     <label className="block text-gray-700">Company Name</label>
                     <input type="text" className="w-full mt-2 p-2 border rounded"
-                    onChange={handleChange}
+                        ref={inputRef}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700">Email</label>
-                    <input type="email" className="w-full mt-2 p-2 border rounded" />
+                    <label className="block text-gray-700">Banner Name</label>
+                    <input type="text" className="w-full mt-2 p-2 border rounded"
+                        ref={bannerRef} 
+                        onChange={handleBannerChange}/>
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700">Mesajınız</label>

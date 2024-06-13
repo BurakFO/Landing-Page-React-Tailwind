@@ -84,7 +84,7 @@ const MenuComponent = () => {
     );
 };
 
-const Navbar = () => {
+const Navbar = ({ onClickCompanyName }) => {
     const [showMenu, setShowMenu] = useState(false);
 
     const toggleMenu = () => {
@@ -97,7 +97,9 @@ const Navbar = () => {
         <div className="shadow-lg bg-white">
             {/* asagidaki class'a container vermedim. onun yerine mx-8 ifadesi var */}
             <div className="mx-8 py-3 lg:py-3 sm:py-0 flex justify-between items-center">
-                <LogoComponent />
+                <div onClick={onClickCompanyName}>
+                    <LogoComponent />
+                </div>
                 <div className="flex items-center sm:hidden">
                     <button onClick={toggleMenu} className="text-2xl">
                         {showMenu ? <FaTimes /> : <FaBars />}
