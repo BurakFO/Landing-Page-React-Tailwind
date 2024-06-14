@@ -8,14 +8,20 @@ import Footer from "../components/Footer/Footer";
 import CreateInput from "../components/CreateInput/CreateInput";
 
 const CreatePage = () => {
+
     const refs = {
         companyNameInput: useRef(null),
         bannerInput: useRef(null)
     };
 
-    const handleClick = (inputName) => {
+    const handleClick = ({ inputName }) => {
+        console.log({ inputName }); //object
+        console.log([inputName]); //array
+        console.log(inputName); //string
+
         if (refs[inputName]) {
             refs[inputName].current.focus();
+
             console.log(`you reached the ${inputName} input`);
         } else {
             console.log(`input ${inputName} does not exist`);
@@ -27,12 +33,12 @@ const CreatePage = () => {
             <div className="grid grid-cols-6 lg:grid-cols-8 gap-9 mt-4 m-4">
                 {/* Edit Section */}
                 <div className="col-span-2 mx-4">
-                    <CreateInput inputRefs={refs}/>
+                    <CreateInput inputRefs={refs} />
                 </div>
 
                 {/* Landing Page Section */}
                 <div className="col-span-4">
-                    <Navbar onClickCompanyName={() => handleClick('companyNameInput')} />
+                    <Navbar onClickCompanyName={() => handleClick({ inputName: 'companyNameInput' })} />
                     <Hero onClickBanner={() => handleClick('bannerInput')} />
                     <Services />
                     <About />
