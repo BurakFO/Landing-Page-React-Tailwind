@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../assets/website/logo.jpg";
 import { FaCaretDown, FaBars, FaTimes } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectCompanyName } from "../../redux/companyNameSlice";
 
 const Menu = [
@@ -35,13 +35,12 @@ const DropdownLinks = [
 const LogoComponent = () => {
     const { companyName, loading } = useSelector(selectCompanyName);
     return (
-        <a href="#" className="font-bold text-2xl sm:text-3xl flex gap-2 hover:scale-105 duration-300  lg:my-0,5">
+        <a href="#" className="font-bold text-2xl sm:text-3xl flex gap-2 hover:scale-105 duration-300 lg:my-0,5">
             <img src={Logo} alt="Logo" className="w-12" />
             <span className="flex items-center">{companyName}</span>
         </a>
     );
 };
-
 
 const DropdownSection = () => {
     return (
@@ -79,7 +78,6 @@ const MenuComponent = () => {
                 </li>
             ))}
             <DropdownSection />
-
         </ul>
     );
 };
@@ -91,11 +89,8 @@ const Navbar = ({ onClickCompanyName }) => {
         setShowMenu(!showMenu);
     };
 
-
-
     return (
         <div className="shadow-lg bg-white">
-            {/* asagidaki class'a container vermedim. onun yerine mx-8 ifadesi var */}
             <div className="mx-8 py-3 lg:py-3 sm:py-0 flex justify-between items-center">
                 <div onClick={onClickCompanyName}>
                     <LogoComponent />
@@ -104,7 +99,6 @@ const Navbar = ({ onClickCompanyName }) => {
                     <button onClick={toggleMenu} className="text-2xl">
                         {showMenu ? <FaTimes /> : <FaBars />}
                     </button>
-
                 </div>
                 <div className="hidden sm:flex items-center">
                     <MenuComponent />
@@ -121,12 +115,9 @@ const Navbar = ({ onClickCompanyName }) => {
                             </li>
                         ))}
                         <DropdownSection />
-
-
                     </ul>
                 </div>
             )}
-
         </div>
     );
 };

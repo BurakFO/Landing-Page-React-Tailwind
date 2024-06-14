@@ -3,15 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectCompanyName, setCompanyName } from "../../redux/companyNameSlice";
 import { selectBanner, setBanner } from "../../redux/bannerSlice";
 
-const CreateInput = ({ inputRef, bannerRef }) => {
-
+const CreateInput = ({ inputRefs }) => {
     const dispatch = useDispatch();
     const { companyName } = useSelector(selectCompanyName);
 
     const handleChange = (e) => {
         dispatch(setCompanyName(e.target.value));
     };
-    const handleBannerChange = (e) =>{
+
+    const handleBannerChange = (e) => {
         dispatch(setBanner(e.target.value));
     };
 
@@ -20,16 +20,21 @@ const CreateInput = ({ inputRef, bannerRef }) => {
             <form>
                 <div className="mb-4">
                     <label className="block text-gray-700">Company Name</label>
-                    <input type="text" className="w-full mt-2 p-2 border rounded"
-                        ref={inputRef}
+                    <input
+                        type="text"
+                        className="w-full mt-2 p-2 border rounded"
+                        ref={inputRefs.companyNameInput}
                         onChange={handleChange}
                     />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700">Banner Name</label>
-                    <input type="text" className="w-full mt-2 p-2 border rounded"
-                        ref={bannerRef} 
-                        onChange={handleBannerChange}/>
+                    <input
+                        type="text"
+                        className="w-full mt-2 p-2 border rounded"
+                        ref={inputRefs.bannerInput}
+                        onChange={handleBannerChange}
+                    />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700">Mesajınız</label>
@@ -41,4 +46,4 @@ const CreateInput = ({ inputRef, bannerRef }) => {
     );
 };
 
-export default CreateInput
+export default CreateInput;
