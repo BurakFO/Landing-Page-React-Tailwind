@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     banner: "IT Hizmetleri ile Geleceğe Hazırlanın",
-    bannerTextColor: "#fffff", //burdan devammmmm
+    bannerTextColor: "#FFFFFF",
     bannerDetail: "Yenilikçi çözümlerle işinizi büyütün",
     bannerBackgroundColor: "#003366"
 };
@@ -17,7 +17,7 @@ export const bannerSlice = createSlice({
         },
 
         setBannerTextColor: (state, action) => {
-            state.banner = action.payload;
+            state.bannerTextColor = action.payload;
         },
 
         setBannerDetail: (state, action) => {
@@ -32,7 +32,7 @@ export const bannerSlice = createSlice({
 
 
 // Eylemleri dışa aktar
-export const { setBanner, setBannerDetail, setBannerBackgroundColor } = bannerSlice.actions;
+export const { setBanner, setBannerDetail, setBannerBackgroundColor, setBannerTextColor } = bannerSlice.actions;
 
 // banner seçicisini dışa aktar
 export const selectBanner = (state) => state.banner;

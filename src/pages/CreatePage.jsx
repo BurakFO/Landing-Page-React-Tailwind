@@ -19,6 +19,7 @@ const CreatePage = () => {
         console.log([inputName]); //array
         console.log(inputName); //string
 
+
         if (refs[inputName]) {
             refs[inputName].current.focus();
             console.log(`you reached the ${inputName} input`);

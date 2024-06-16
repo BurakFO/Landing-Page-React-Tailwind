@@ -7,14 +7,17 @@ import useFormHandlers from "../../hooks/useFormHandlers";
 
 const CreateInput = ({ inputRefs }) => {
 
+
     const { bannerBackgroundColor } = useSelector(selectBanner);
+    const { bannerTextColor } = useSelector(selectBanner);
 
-
+    // onChanges connected with the hook 
     const {
         handleChangeCompanyName,
         handleBannerChange,
         handleBannerDetailChange,
-        handleChangeBackgroundColor
+        handleChangeBackgroundColor,
+        handleBannerTextColor
 
     } = useFormHandlers();
 
@@ -22,6 +25,7 @@ const CreateInput = ({ inputRefs }) => {
     return (
         <div>
             <form>
+                {/* Compay Name Section */}
                 <div className="mb-4">
                     <label className="block text-gray-700">Company Name</label>
                     <input
@@ -31,6 +35,8 @@ const CreateInput = ({ inputRefs }) => {
                         onChange={handleChangeCompanyName}
                     />
                 </div>
+
+                {/* Baner Section */}
                 <div className="mb-4">
                     <label className="block text-gray-700">Banner Name</label>
                     <input
@@ -46,8 +52,7 @@ const CreateInput = ({ inputRefs }) => {
                         <input
                             type="color"
                             id="colorPicker"
-                            value={bannerBackgroundColor}
-                            onChange={() => console.log('ehehehe')}
+                            onChange={handleBannerTextColor}
                             className="w-10 h-10 p-0"
                         />
                     </div>
@@ -71,6 +76,7 @@ const CreateInput = ({ inputRefs }) => {
                     </div>
                 </div>
 
+                {/* Create Button  */}
                 <button type="submit" className="bg-blue-600 text-white py-2 px-4 rounded"
                     onClick={() => alert('Henuz sayfani olusturamiyoruz, cok yakinda bu ozellik sizlerle!!')}>Olustur !!</button>
             </form>

@@ -4,11 +4,15 @@ import { selectBanner } from '../../redux/bannerSlice';
 
 const Hero = ({ onClickBanner }) => {
   const { banner } = useSelector(selectBanner);
+  const { bannerTextColor } = useSelector(selectBanner);
   const { bannerDetail } = useSelector(selectBanner);
   const { bannerBackgroundColor } = useSelector(selectBanner);
 
   return (
-    <section id="hero" className="text-white py-20" style={{ backgroundColor: `${bannerBackgroundColor}` }}>
+    <section id="hero" className="py-20" style={{
+      backgroundColor: `${bannerBackgroundColor}`,
+      color: `${bannerTextColor}`
+    }}>
       <div className="container mx-auto text-center">
         <h1 className="text-5xl font-bold mb-4"
           onClick={onClickBanner}>
