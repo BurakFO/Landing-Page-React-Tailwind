@@ -32,7 +32,11 @@ export const bannerSlice = createSlice({
 
 
 // Eylemleri dışa aktar
-export const { setBanner, setBannerDetail, setBannerBackgroundColor, setBannerTextColor } = bannerSlice.actions;
+export const { 
+    setBanner, 
+    setBannerDetail, 
+    setBannerBackgroundColor, 
+    setBannerTextColor } = bannerSlice.actions;
 
 // banner seçicisini dışa aktar
 export const selectBanner = (state) => state.banner;

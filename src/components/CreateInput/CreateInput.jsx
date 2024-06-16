@@ -82,6 +82,7 @@ const CreateInput = ({ inputRefs }) => {
                 {/* Create Button  */}
                 <button type="submit" className="bg-blue-600 text-white py-2 px-4 rounded"
                     onClick={() => alert('Henuz sayfani olusturamiyoruz, cok yakinda bu ozellik sizlerle!!')}>Olustur !!</button>
+                    
             </form>
         </div>
     );
