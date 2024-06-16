@@ -21,7 +21,6 @@ const CreatePage = () => {
 
         if (refs[inputName]) {
             refs[inputName].current.focus();
-
             console.log(`you reached the ${inputName} input`);
         } else {
             console.log(`input ${inputName} does not exist`);
@@ -32,14 +31,15 @@ const CreatePage = () => {
         <>
             <div className="grid grid-cols-6 lg:grid-cols-8 gap-9 mt-4 m-4">
                 {/* Edit Section */}
-                <div className="col-span-2 mx-4">
+                <div className="col-span-2 mx-4 bg-gray-200">
+                    <h1 className="flex text-lg text-center font-bold items-center justify-center my-5">You can Edit the Landing Page HERE!</h1>
                     <CreateInput inputRefs={refs} />
                 </div>
 
                 {/* Landing Page Section */}
-                <div className="col-span-4">
+                <div className="col-span-4 border-4 border-red-500">
                     <Navbar onClickCompanyName={() => handleClick({ inputName: 'companyNameInput' })} />
-                    <Hero onClickBanner={() => handleClick('bannerInput')} />
+                    <Hero onClickBanner={() => handleClick({ inputName: 'bannerInput' })} />
                     <Services />
                     <About />
                     <Contact />

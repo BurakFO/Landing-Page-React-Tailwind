@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCompanyName, setCompanyName } from "../../redux/companyNameSlice";
-import { selectBanner, setBanner } from "../../redux/bannerSlice";
+import { selectBanner, setBanner, setBannerDetail, setBannerBackgroundColor } from "../../redux/bannerSlice";
+import { useState } from "react";
 
 const CreateInput = ({ inputRefs }) => {
+
     const dispatch = useDispatch();
-    const { companyName } = useSelector(selectCompanyName);
+    const { banner } = useSelector(selectBanner);
+    const { bannerDetail } = useSelector(selectBanner);
+    const { bannerBackgroundColor } = useSelector(selectBanner);
 
     const handleChange = (e) => {
         dispatch(setCompanyName(e.target.value));
@@ -14,6 +18,15 @@ const CreateInput = ({ inputRefs }) => {
     const handleBannerChange = (e) => {
         dispatch(setBanner(e.target.value));
     };
+
+    const handleBannerDetailChange = (e) => {
+        dispatch(setBannerDetail(e.target.value));
+    };
+
+    const handleChangeBackgroundColor = (e) => {
+        dispatch(setBannerBackgroundColor(e.target.value));
+    };
+
 
     return (
         <div>
@@ -35,6 +48,24 @@ const CreateInput = ({ inputRefs }) => {
                         ref={inputRefs.bannerInput}
                         onChange={handleBannerChange}
                     />
+                    <label className="block text-gray-700">Banner Detail</label>
+                    <input
+                        type="text"
+                        className="w-full mt-2 p-2 border rounded"
+                        onChange={handleBannerDetailChange}
+                    />
+                    <div className="mb-4">
+                        <label htmlFor="colorPicker" className="block text-gray-700 text-sm font-bold mb-2">
+                            Arkaplan Rengini Seç:
+                        </label>
+                        <input
+                            type="color"
+                            id="colorPicker"
+                            value={bannerBackgroundColor}
+                            onChange={handleChangeBackgroundColor}
+                            className="w-20 h-10 p-0 border-none"
+                        />
+                    </div>
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700">Mesajınız</label>
