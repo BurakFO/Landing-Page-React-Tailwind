@@ -9,4 +9,7 @@ Currently, two official plugins are available:
 # Landing-Page-React-Tailwind
 # Landing-Page-React-Tailwind
 
-# Website Link:  http://localhost:5173/ http://localhost:5173/create
+# Website Links:
+
+HomePage: https://inotech.netlify.app
+Create Landing Page: https://inotech.netlify.app/create
