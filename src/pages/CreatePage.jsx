@@ -11,7 +11,8 @@ const CreatePage = () => {
 
     const refs = {
         companyNameInput: useRef(null),
-        bannerInput: useRef(null)
+        bannerInput: useRef(null),
+        bannerDetailInput: useRef(null)
     };
 
     const handleClick = ({ inputName }) => {
@@ -40,7 +41,10 @@ const CreatePage = () => {
                 {/* Landing Page Section */}
                 <div className="col-span-4 border-4 border-red-500">
                     <Navbar onClickCompanyName={() => handleClick({ inputName: 'companyNameInput' })} />
-                    <Hero onClickBanner={() => handleClick({ inputName: 'bannerInput' })} />
+                    <Hero
+                        onClickBanner={() => handleClick({ inputName: 'bannerInput' })}
+                        onClickBannerDetail={() => handleClick({ inputName: 'bannerDetailInput' })}
+                    />
                     <Services />
                     <About />
                     <Contact />

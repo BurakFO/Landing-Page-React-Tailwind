@@ -2,11 +2,14 @@ import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { selectBanner } from '../../redux/bannerSlice';
 
-const Hero = ({ onClickBanner }) => {
-  const { banner } = useSelector(selectBanner);
-  const { bannerTextColor } = useSelector(selectBanner);
-  const { bannerDetail } = useSelector(selectBanner);
-  const { bannerBackgroundColor } = useSelector(selectBanner);
+const Hero = ({ onClickBanner, onClickBannerDetail }) => {
+
+
+  const {
+    banner,
+    bannerTextColor,
+    bannerDetail,
+    bannerBackgroundColor } = useSelector(selectBanner);
 
   return (
     <section id="hero" className="py-20" style={{
@@ -18,7 +21,10 @@ const Hero = ({ onClickBanner }) => {
           onClick={onClickBanner}>
           {banner}
         </h1>
-        <p className="text-xl mb-8">{bannerDetail}</p>
+        <p className="text-xl mb-8"
+          onClick={onClickBannerDetail}>
+          {bannerDetail}
+        </p>
         <button className="bg-gray-800 py-2 px-4 rounded">Daha Fazla Bilgi</button>
       </div>
     </section>

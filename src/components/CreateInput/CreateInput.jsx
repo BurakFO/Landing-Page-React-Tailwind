@@ -5,6 +5,7 @@ import { selectBanner, setBanner, setBannerDetail, setBannerBackgroundColor } fr
 import { useState } from "react";
 import useFormHandlers from "../../hooks/useFormHandlers";
 
+
 const CreateInput = ({ inputRefs }) => {
 
 
@@ -52,6 +53,7 @@ const CreateInput = ({ inputRefs }) => {
                         <input
                             type="color"
                             id="colorPicker"
+                            value={bannerTextColor}
                             onChange={handleBannerTextColor}
                             className="w-10 h-10 p-0"
                         />
@@ -60,6 +62,7 @@ const CreateInput = ({ inputRefs }) => {
                     <input
                         type="text"
                         className="w-full mt-2 p-2 border rounded"
+                        ref={inputRefs.bannerDetailInput}
                         onChange={handleBannerDetailChange}
                     />
                     <div className="mb-4">
