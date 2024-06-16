@@ -67,11 +67,9 @@ const CreateInput = ({ inputRefs }) => {
                         />
                     </div>
                 </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700">Mesajınız</label>
-                    <textarea className="w-full mt-2 p-2 border rounded" rows="4"></textarea>
-                </div>
-                <button type="submit" className="bg-blue-600 text-white py-2 px-4 rounded">Gönder</button>
+               
+                <button type="submit" className="bg-blue-600 text-white py-2 px-4 rounded"
+                onClick={() => alert('Henuz sayfani olusturamiyoruz, cok yakinda bu ozellik sizlerle!!')}>Olustur !!</button>
             </form>
         </div>
     );
