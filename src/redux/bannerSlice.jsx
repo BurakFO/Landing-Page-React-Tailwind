@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     banner: "IT Hizmetleri ile Geleceğe Hazırlanın",
+    bannerTextColor: "#fffff", //burdan devammmmm
     bannerDetail: "Yenilikçi çözümlerle işinizi büyütün",
     bannerBackgroundColor: "#003366"
 };
@@ -12,6 +13,10 @@ export const bannerSlice = createSlice({
     initialState,
     reducers: {
         setBanner: (state, action) => {
+            state.banner = action.payload;
+        },
+
+        setBannerTextColor: (state, action) => {
             state.banner = action.payload;
         },
 

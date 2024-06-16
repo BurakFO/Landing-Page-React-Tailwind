@@ -3,29 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectCompanyName, setCompanyName } from "../../redux/companyNameSlice";
 import { selectBanner, setBanner, setBannerDetail, setBannerBackgroundColor } from "../../redux/bannerSlice";
 import { useState } from "react";
+import useFormHandlers from "../../hooks/useFormHandlers";
 
 const CreateInput = ({ inputRefs }) => {
 
-    const dispatch = useDispatch();
-    const { banner } = useSelector(selectBanner);
-    const { bannerDetail } = useSelector(selectBanner);
     const { bannerBackgroundColor } = useSelector(selectBanner);
 
-    const handleChange = (e) => {
-        dispatch(setCompanyName(e.target.value));
-    };
 
-    const handleBannerChange = (e) => {
-        dispatch(setBanner(e.target.value));
-    };
+    const {
+        handleChangeCompanyName,
+        handleBannerChange,
+        handleBannerDetailChange,
+        handleChangeBackgroundColor
 
-    const handleBannerDetailChange = (e) => {
-        dispatch(setBannerDetail(e.target.value));
-    };
-
-    const handleChangeBackgroundColor = (e) => {
-        dispatch(setBannerBackgroundColor(e.target.value));
-    };
+    } = useFormHandlers();
 
 
     return (
@@ -37,7 +28,7 @@ const CreateInput = ({ inputRefs }) => {
                         type="text"
                         className="w-full mt-2 p-2 border rounded"
                         ref={inputRefs.companyNameInput}
-                        onChange={handleChange}
+                        onChange={handleChangeCompanyName}
                     />
                 </div>
                 <div className="mb-4">
@@ -48,6 +39,18 @@ const CreateInput = ({ inputRefs }) => {
                         ref={inputRefs.bannerInput}
                         onChange={handleBannerChange}
                     />
+                    <div className="flex justify-end mb-4">
+                        <label htmlFor="colorPicker" className="flex items-center  text-gray-700 text-sm font-bold">
+                            Banner Yazi rengi:
+                        </label>
+                        <input
+                            type="color"
+                            id="colorPicker"
+                            value={bannerBackgroundColor}
+                            onChange={() => console.log('ehehehe')}
+                            className="w-10 h-10 p-0"
+                        />
+                    </div>
                     <label className="block text-gray-700">Banner Detail</label>
                     <input
                         type="text"
@@ -67,9 +70,9 @@ const CreateInput = ({ inputRefs }) => {
                         />
                     </div>
                 </div>
-               
+
                 <button type="submit" className="bg-blue-600 text-white py-2 px-4 rounded"
-                onClick={() => alert('Henuz sayfani olusturamiyoruz, cok yakinda bu ozellik sizlerle!!')}>Olustur !!</button>
+                    onClick={() => alert('Henuz sayfani olusturamiyoruz, cok yakinda bu ozellik sizlerle!!')}>Olustur !!</button>
             </form>
         </div>
     );
